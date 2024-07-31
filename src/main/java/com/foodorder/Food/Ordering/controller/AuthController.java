@@ -1,6 +1,7 @@
 package com.foodorder.Food.Ordering.controller;
 
 
+import com.foodorder.Food.Ordering.model.USER_ROLE;
 import com.foodorder.Food.Ordering.request.LoginRequest;
 import com.foodorder.Food.Ordering.response.AuthResponse;
 import com.foodorder.Food.Ordering.Service.CustomerUserDetailsService;
@@ -80,7 +81,7 @@ public class AuthController {
 
     }
     
-    
+    @PostMapping("/signin")
     public ResponseEntity<AuthResponse> simple(@RequestBody LoginRequest req){
 
         String username = req.getEmail();
@@ -95,11 +96,8 @@ public class AuthController {
 
         AuthResponse authResponse = new AuthResponse();
         authResponse.setJwt(jwt);
-        authResponse.setMessage("Register success");
-
-
-
-      //  authResponse.setRole(savedUser.getRole());
+        authResponse.setMessage("Login success");
+        authResponse.setRole(USER_ROLE.valueOf(role));
 
         return  new ResponseEntity<>(authResponse, HttpStatus.OK);
 
