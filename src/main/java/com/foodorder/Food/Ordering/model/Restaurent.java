@@ -2,7 +2,9 @@ package com.foodorder.Food.Ordering.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -12,6 +14,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Restaurent {
 
     @Id
@@ -25,13 +28,17 @@ public class Restaurent {
 
     private String cuisineType;
 
+    private String description;
+
     @OneToOne
     private Address address;
 
     @Embedded
     private ContactInfomation contactInfomation;
 
-    private String openingMours;
+
+
+    private String openingHours;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
@@ -45,6 +52,6 @@ public class Restaurent {
     private boolean open;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurent",cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
 }

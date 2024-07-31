@@ -24,12 +24,13 @@ public class AppConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(Authorize -> Authorize.requestMatchers("/api/admin/**").hasAnyRole("RESTAURENT_OWNER","ADMIN" )
-                        .requestMatchers("/api/**").authenticated()
+                .authorizeHttpRequests(Authorize -> Authorize
+          //              .requestMatchers("/api/admin/**").hasAnyRole("RESTAURENT_OWNER","ADMIN" )
+           //             .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll()
                 ).addFilterBefore(new JwtTokenValidater(), BasicAuthenticationFilter.class)
                 .csrf(csrf -> csrf.disable()).cors(cors -> cors.configurationSource(corsConfigretionSource()));
-        return null;
+        return http.build();
     }
 
     private CorsConfigurationSource corsConfigretionSource() {
