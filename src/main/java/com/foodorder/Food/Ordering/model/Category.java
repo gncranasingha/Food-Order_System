@@ -19,6 +19,7 @@ public class Category {
 
     @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "restaurant_id")
     private Restaurent restaurent;
 
 

@@ -2,7 +2,6 @@ package com.foodorder.Food.Ordering.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -54,4 +53,7 @@ public class Restaurent {
     @JsonIgnore
     @OneToMany(mappedBy = "restaurent",cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
+
+    @OneToMany(mappedBy = "restaurent")
+    private List<Category> categories;
 }
