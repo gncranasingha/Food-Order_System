@@ -32,6 +32,7 @@ public class Food {
     private List<String> images;
 
     private boolean available;
+    private Long restaurantId;
 
     @ManyToOne
     private Restaurent restaurent;

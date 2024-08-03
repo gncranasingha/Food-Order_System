@@ -4,7 +4,6 @@ import com.foodorder.Food.Ordering.Service.FoodService;
 import com.foodorder.Food.Ordering.Service.RestaurantService;
 import com.foodorder.Food.Ordering.Service.UserService;
 import com.foodorder.Food.Ordering.model.Food;
-import com.foodorder.Food.Ordering.model.Restaurent;
 import com.foodorder.Food.Ordering.model.User;
 import com.foodorder.Food.Ordering.request.CreateFoodRequest;
 import org.springframework.beans.factory.annotation.Autowired;
