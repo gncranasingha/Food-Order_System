@@ -1,22 +1,30 @@
 import { Style } from '@mui/icons-material';
-import { Modal } from '@mui/material'
+import { Box, Modal } from '@mui/material'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { style } from '../Cart/Cart';
+import RegistrationForm from './RegistrationForm';
+import LoginForm from './LoginForm';
 
 const Auth = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    const handleOnClose=()=>{
+        navigate("/")
+    }
 
   return (
     <>
-        <Modal open={true
-            // location.pathname === "/account/register"
-            // || location.pathname === "account/login"
+        <Modal   onClose={handleOnClose} open={
+            location.pathname === "/account/register"
+            || location.pathname === "/account/login"
+           
         } >
 
-            <Box sx={{style}} ></Box>
+           <Box sx={style} >
+            {location.pathname ==="/account/register"? <RegistrationForm/> : <LoginForm/>}
+           </Box>
 
         </Modal>
     </>

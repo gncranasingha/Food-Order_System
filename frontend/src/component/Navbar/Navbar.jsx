@@ -4,8 +4,12 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Avatar, Badge, Box, IconButton } from '@mui/material';
 import { pink } from '@mui/material/colors';
 import "./Navbar.css";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate()
+
   return (
     <Box className='px-5 sticky top-0  z-50 py-[.8rem] bg-[#e91e63] 1g:px-20 flex justify-between' >
       <div className='flex items-center space-x-4'>
@@ -23,10 +27,10 @@ const Navbar = () => {
         </IconButton>
         </div>
         <div className='' >
-
-        <IconButton>
-            <Avatar sx={{bgcolor:"white", color:pink.A400}} >C</Avatar>
-        </IconButton>
+        { false ? <Avatar sx={{bgcolor:"white", color:pink.A400}} >C</Avatar>:
+        <IconButton onClick={()=>navigate("/account/login")} >
+            <AccountCircleIcon sx={{fontSize:35}}/>
+        </IconButton>}
         
       </div>
       <div className='' >

@@ -4,6 +4,7 @@ import Navbar from '../component/Navbar/Navbar'
 import Profile from '../component/profile/Profile'
 import Home from '../component/Home/Home'
 import Cart from '../component/Cart/Cart'
+import Auth from '../component/Auth/Auth'
 
 const CustomerRoute = () => {
   return (
@@ -17,6 +18,7 @@ const CustomerRoute = () => {
             <Route path='/my-profile/*' element={<Profile/>} />
 
         </Routes>
+        <Auth/>
     </div>
   )
 }
