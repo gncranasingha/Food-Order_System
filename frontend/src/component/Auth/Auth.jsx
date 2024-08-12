@@ -11,9 +11,9 @@ const Auth = () => {
 
   return (
     <>
-        <Modal open={
-            location.pathname === "/account/register"
-            || location.pathname === "account/login"
+        <Modal open={true
+            // location.pathname === "/account/register"
+            // || location.pathname === "account/login"
         } >
 
             <Box sx={{style}} ></Box>
